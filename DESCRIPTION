@@ -1,0 +1,15 @@
+Package: WoodsHoleInvertKey
+Type: Package
+Title: Interactive Dichotomous Key to Marine Invertebrates of the Woods Hole Region
+Version: 0.1.0
+Author: Linnea Lungstrom
+Maintainer: The package maintainer <lllungstrom@uchicago.edu>
+Description: Based on the revised and edited key by Dr. Michael LaBarbera (Department of Organismal Biology & Anatomy/Committee on Evolutionary Biology; The University of Chicago). Allows for the identification of the commoner marine invertebrates of the Woods Hole (Massachusetts) region through interactive functions. 
+Encoding: UTF-8
+LazyData: true
+Imports: magick 
+RoxygenNote: 7.3.2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
