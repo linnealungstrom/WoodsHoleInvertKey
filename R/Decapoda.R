@@ -34,7 +34,6 @@ decapoda<-function(image.folder){
   family <- "Family not identified"
   genus_species <- "Identification not found"
 
-
 a <- readline(cat("Which applies to your organism?
 
   Small animal of shrimp-like form;
@@ -1299,3 +1298,4 @@ Your organism identification is
 
 return("No Errors? Congratulations! You are clearly in your dichotomous key era! Slay!! If you have errors, no worries girlie pop, it can still be a brat summer! Just run that shit back!")
 }
+
