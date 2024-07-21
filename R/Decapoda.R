@@ -34,7 +34,6 @@ decapoda<-function(image.folder){
   family <- "Family not identified"
   genus_species <- "Identification not found"
 
-  choiceERROR<-magick::image_read("inst/extdata/decapoda/ERROR.jpg")
 
 a <- readline(cat("Which applies to your organism?
 
@@ -86,7 +85,7 @@ if (a=="1"){
       plot(choice32)
       title(main=expression( bold("ENTER 32")), line = -4)
     } else if ("choice_32.jpg" %in% image_fdir == FALSE) {
-      plot(choiceERROR)
+      plot(0,0)
       title(main=expression( bold("ERROR")), line = -4)
     }
 
@@ -125,7 +124,7 @@ if (a=="1"){
           plot(choice4)
           title(main=expression( bold("ENTER 4")), line = -4)
         } else if ("choice_4.jpg" %in% image_fdir == FALSE) {
-          plot(choiceERROR)
+          plot(0,0)
           title(main=expression( bold("ERROR")), line = -4)
         }
 
@@ -157,7 +156,7 @@ if (a=="1"){
             plot(choice9)
             title(main=expression( bold("ENTER 9")), line = -4)
           } else if ("choice_9.jpg" %in% image_fdir == FALSE) {
-            plot(choiceERROR)
+            plot(0,0)
             title(main=expression( bold("ERROR")), line = -4)
           }
 
@@ -190,7 +189,7 @@ if (a=="1"){
               plot(choice30)
               title(main=expression( bold("ENTER 30")), line = -4)
             } else if ("choice_30.jpg" %in% image_fdir == FALSE) {
-              plot(choiceERROR)
+              plot(0,0)
               title(main=expression( bold("ERROR")), line = -4)
             }
           }
@@ -231,7 +230,7 @@ if (b=="2") {
       plot(choice34)
       title(main=expression( bold("ENTER 34")), line = -4)
     } else if ("choice_34.jpg" %in% image_fdir == FALSE) {
-      plot(choiceERROR)
+      plot(0,0)
       title(main=expression( bold("ERROR")), line = -4)
     }
 
@@ -273,7 +272,7 @@ if (b=="2") {
             plot(choice37)
             title(main=expression( bold("ENTER 37")), line = -4)
           } else if ("choice_37.jpg" %in% image_fdir == FALSE) {
-            plot(choiceERROR)
+            plot(0,0)
             title(main=expression( bold("ERROR")), line = -4)
           }
 
@@ -302,7 +301,7 @@ if (b=="2") {
               plot(choice34)
               title(main=expression( bold("ENTER 34")), line = -4)
             } else if ("choice_34.jpg" %in% image_fdir == FALSE) {
-              plot(choiceERROR)
+              plot(0,0)
               title(main=expression( bold("ERROR")), line = -4)
             }
 
@@ -331,7 +330,7 @@ if (b=="2") {
                 plot(choice19)
                 title(main=expression( bold("ENTER 19")), line = -4)
               } else if ("choice_19.jpg" %in% image_fdir == FALSE) {
-                plot(choiceERROR)
+                plot(0,0)
                 title(main=expression( bold("ERROR")), line = -4)
               }
 
@@ -364,7 +363,7 @@ if (b=="2") {
                   plot(choice56)
                   title(main=expression( bold("ENTER 56")), line = -4)
                 } else if ("choice_56.jpg" %in% image_fdir == FALSE) {
-                  plot(choiceERROR)
+                  plot(0,0)
                   title(main=expression( bold("ERROR")), line = -4)
                 }
 
@@ -393,7 +392,7 @@ if (b=="2") {
                     plot(choice43)
                     title(main=expression( bold("ENTER 43")), line = -4)
                   } else if ("choice_43.jpg" %in% image_fdir == FALSE) {
-                    plot(choiceERROR)
+                    plot(0,0)
                     title(main=expression( bold("ERROR")), line = -4)
                   }
 
@@ -474,7 +473,7 @@ if (c=="33"){
                   plot(choice39)
                   title(main=expression( bold("ENTER 39")), line = -4)
                 } else if ("choice_39.jpg" %in% image_fdir == FALSE) {
-                  plot(choiceERROR)
+                  plot(0,0)
                   title(main=expression( bold("ERROR")), line = -4)
                 }
 
@@ -503,7 +502,7 @@ if (c=="33"){
                   plot(choice23)
                   title(main=expression( bold("ENTER 23")), line = -4)
                 } else if ("choice_23.jpg" %in% image_fdir == FALSE) {
-                  plot(choiceERROR)
+                  plot(0,0)
                   title(main=expression( bold("ERROR")), line = -4)
                 }
 
@@ -535,7 +534,7 @@ if (c=="33"){
                     plot(choice20)
                     title(main=expression( bold("ENTER 20")), line = -4)
                   } else if ("choice_20.jpg" %in% image_fdir == FALSE) {
-                    plot(choiceERROR)
+                    plot(0,0)
                     title(main=expression( bold("ERROR")), line = -4)
                   }
 
@@ -566,7 +565,7 @@ if (c=="33"){
                       plot(choice58)
                       title(main=expression( bold("ENTER 58")), line = -4)
                     } else if ("choice_58.jpg" %in% image_fdir == FALSE) {
-                      plot(choiceERROR)
+                      plot(0,0)
                       title(main=expression( bold("ERROR")), line = -4)
                     }
 
@@ -629,7 +628,7 @@ if (d=="8"){
       plot(choice41)
       title(main=expression( bold("ENTER 41")), line = -4)
     } else if ("choice_41.jpg" %in% image_fdir == FALSE) {
-      plot(choiceERROR)
+      plot(0,0)
       title(main=expression( bold("ERROR")), line = -4)
     }
 
@@ -662,7 +661,7 @@ if (d=="8"){
           plot(choice13)
           title(main=expression( bold("ENTER 13")), line = -4)
         } else if ("choice_13.jpg" %in% image_fdir == FALSE) {
-          plot(choiceERROR)
+          plot(0,0)
           title(main=expression( bold("ERROR")), line = -4)
         }
 
@@ -691,7 +690,7 @@ if (d=="8"){
             plot(choice25)
             title(main=expression( bold("ENTER 25")), line = -4)
           } else if ("choice_25.jpg" %in% image_fdir == FALSE) {
-            plot(choiceERROR)
+            plot(0,0)
             title(main=expression( bold("ERROR")), line = -4)
           }
 
@@ -725,7 +724,7 @@ if (d=="8"){
               plot(choice43)
               title(main=expression( bold("ENTER 43")), line = -4)
             } else if ("choice_43.jpg" %in% image_fdir == FALSE) {
-              plot(choiceERROR)
+              plot(0,0)
               title(main=expression( bold("ERROR")), line = -4)
             }
 
@@ -789,7 +788,7 @@ if (e=="40"){
           plot(choice45)
           title(main=expression( bold("ENTER 45")), line = -4)
         } else if ("choice_45.jpg" %in% image_fdir == FALSE) {
-          plot(choiceERROR)
+          plot(0,0)
           title(main=expression( bold("ERROR")), line = -4)
         }
 
@@ -820,7 +819,7 @@ if (e=="40"){
             plot(choice18)
             title(main=expression( bold("ENTER 18")), line = -4)
           } else if ("choice_18.jpg" %in% image_fdir == FALSE) {
-            plot(choiceERROR)
+            plot(0,0)
             title(main=expression( bold("ERROR")), line = -4)
           }
 
@@ -853,7 +852,7 @@ if (e=="40"){
               plot(choice47)
               title(main=expression( bold("ENTER 47")), line = -4)
             } else if ("choice_47.jpg" %in% image_fdir == FALSE) {
-              plot(choiceERROR)
+              plot(0,0)
               title(main=expression( bold("ERROR")), line = -4)
             }
 
@@ -888,7 +887,7 @@ if (e=="40"){
                 plot(choice48)
                 title(main=expression( bold("ENTER 48")), line = -4)
               } else if ("choice_48.jpg" %in% image_fdir == FALSE) {
-                plot(choiceERROR)
+                plot(0,0)
                 title(main=expression( bold("ERROR")), line = -4)
               }
 
@@ -954,7 +953,7 @@ if (f=="44"){
           plot(choice15)
           title(main=expression( bold("ENTER 15")), line = -4)
         } else if ("choice_15.jpg" %in% image_fdir == FALSE) {
-          plot(choiceERROR)
+          plot(0,0)
           title(main=expression( bold("ERROR")), line = -4)
         }
 
@@ -989,7 +988,7 @@ if (f=="44"){
             plot(choice51)
             title(main=expression( bold("ENTER 51")), line = -4)
           } else if ("choice_51.jpg" %in% image_fdir == FALSE) {
-            plot(choiceERROR)
+            plot(0,0)
             title(main=expression( bold("ERROR")), line = -4)
           }
 
@@ -1031,7 +1030,7 @@ if (f=="44"){
                   plot(choice53)
                   title(main=expression( bold("ENTER 53")), line = -4)
                 } else if ("choice_53.jpg" %in% image_fdir == FALSE) {
-                  plot(choiceERROR)
+                  plot(0,0)
                   title(main=expression( bold("ERROR")), line = -4)
                 }
 
@@ -1093,7 +1092,7 @@ if (g=="49"){
         plot(choice54)
         title(main=expression( bold("ENTER 54")), line = -4)
       } else if ("choice_54.jpg" %in% image_fdir == FALSE) {
-        plot(choiceERROR)
+        plot(0,0)
         title(main=expression( bold("ERROR")), line = -4)
       }
 
@@ -1155,7 +1154,7 @@ if (h=="16"){
       plot(choice17)
       title(main=expression( bold("ENTER 17")), line = -4)
     } else if ("choice_17.jpg" %in% image_fdir == FALSE) {
-      plot(choiceERROR)
+      plot(0,0)
       title(main=expression( bold("ERROR")), line = -4)
     }
 
@@ -1205,7 +1204,7 @@ if (i=="55"){
         plot(choice60)
         title(main=expression( bold("ENTER 60")), line = -4)
       } else if ("choice_60.jpg" %in% image_fdir == FALSE) {
-        plot(choiceERROR)
+        plot(0,0)
         title(main=expression( bold("ERROR")), line = -4)
       }
 
