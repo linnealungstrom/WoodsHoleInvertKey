@@ -1,15 +1,16 @@
 #' Decapoda Key
 #'
 #' This function allows you to identify your decapod based on their morphology. You should start with an empty
-#' folder where you will eventually store photos of the morphological structures you've used to identify your
-#' organisms. This function requires a single input: the path to this folder. It's ok if it's empty to begin
-#' with, but in order to run the function you do need to provide it's path on your computer. This path should be
-#' contained in quotes and end in a forward slash "/". Once you provide the path, you can begin keying your
-#' decapod! As you move through the identification, you will need to enter numbers based on the interactive
-#' questions. Once you populate images into your folder, you will see them plot side by side on the questions
-#' they apply to! Important: when naming images, use the following structure "choice_#.jpg" where the pound sign
-#' "#" should be replaced by the number you would choose in the key based on the morphological structure
-#' you've photographed. You should have no more than one photo per number.
+#' folder titled "Decapoda" where you will eventually store photos of the morphological structures you've used
+#' to identify your decapods. KEEP SEPARATE FROM YOUR OTHER FOLDERS/PICUTRES OF ORGANISMS! This function
+#' requires a single input: the path to this folder. It's ok if it's empty to begin with, but in order to run the
+#' function you do need to provide it's path on your computer. This path should be contained in quotes and end in
+#' a forward slash "/". Once you provide the path, you can begin keying your decapod! As you move through the
+#' identification, you will need to enter numbers based on the interactive questions. Once you populate images
+#' into your folder, you will see them plot side by side on the questions they apply to! Important: when naming
+#' images, use the following structure "choice_#.jpg" where the pound sign "#" should be replaced by the number
+#' you would choose in the key based on the morphological structure you've photographed. You should have no more
+#' than one photo per number.
 #'
 #' @param image.folder Path to the folder that contains your identification images
 #' @return A list of your key choices as well as a species Identification!
@@ -29,6 +30,17 @@ decapoda<-function(image.folder){
   h<-"NA"
   i<-"NA"
   j<-"NA"
+
+  a_plot<-"NA"
+  b_plot<-"NA"
+  c_plot<-"NA"
+  d_plot<-"NA"
+  e_plot<-"NA"
+  f_plot<-"NA"
+  g_plot<-"NA"
+  h_plot<-"NA"
+  i_plot<-"NA"
+  j_plot<-"NA"
 
   infraorder <- "Infraorder not identified"
   family <- "Family not identified"
@@ -71,21 +83,30 @@ if (a=="1"){
   infraorder<-"Caridea"
   print("Your organism is in the Infraorder CARIDEA!")
 
-  if ("choice_2.jpg" %in% image_fdir == TRUE) {
+  if ("choice_2.jpg" %in% image_fdir == TRUE && "choice_32.jpg" %in% image_fdir == TRUE) {
     image_path<- paste0(image.folder, "choice_2.jpg")
     choice2<-magick::image_read(image_path)
     op <- par(mfrow=c(1,2))
     plot(choice2)
     title(main=expression( bold("ENTER 2")), line = -4)
+    image_path <- paste0(image.folder, "choice_32.jpg")
+    choice32<-magick::image_read(image_path)
+    plot(choice32)
+    title(main=expression(bold("ENTER 32")), line = -4)
+  } else {
+    if ("choice_2.jpg" %in% image_fdir == TRUE){
+      image_path <- paste0(image.folder, "choice_2.jpg")
+      choice2<-magick::image_read(image_path)
+      plot(choice2)
+      title(main=expression(bold("ENTER 2")))
 
+    }
     if ("choice_32.jpg" %in% image_fdir == TRUE){
       image_path <- paste0(image.folder, "choice_32.jpg")
       choice32<-magick::image_read(image_path)
       plot(choice32)
-      title(main=expression( bold("ENTER 32")), line = -4)
-    } else if ("choice_32.jpg" %in% image_fdir == FALSE) {
-      plot(0,0)
-      title(main=expression( bold("ERROR")), line = -4)
+      title(main=expression(bold("ENTER 32")))
+
     }
 
   }
@@ -104,27 +125,36 @@ if (a=="1"){
     family<-"Nephropidae"
     genus_species<-"Homarus americanus"
     print("Your organism is in the Infraorder ASTACIDEA!")
-    print(paste("Identification! The only local marine representative, the lobster Homarus americanus"))
+    print(paste("Identification! The only local marine representative, the lobster Homarus americanus (choice 31)"))
   } else {
     if (a=="3"){
       infraorder<-"Axiidea"
       print("Your organism is in the Infraorder AXIIDEA!")
 
-      if ("choice_35.jpg" %in% image_fdir == TRUE) {
-        image_path <- paste0(image.folder, "choice_35.jpg")
+      if ("choice_35.jpg" %in% image_fdir == TRUE && "choice_4.jpg" %in% image_fdir == TRUE) {
+        image_path<- paste0(image.folder, "choice_35.jpg")
         choice35<-magick::image_read(image_path)
         op <- par(mfrow=c(1,2))
         plot(choice35)
-        title(main=expression( bold("ENTER 35")), line = -4)
+        title(main=expression(bold("ENTER 35")), line = -4)
+        image_path <- paste0(image.folder, "choice_4.jpg")
+        choice4<-magick::image_read(image_path)
+        plot(choice4)
+        title(main=expression(bold("ENTER 4")), line = -4)
+      } else {
+        if ("choice_35.jpg" %in% image_fdir == TRUE){
+          image_path <- paste0(image.folder, "choice_35.jpg")
+          choice35<-magick::image_read(image_path)
+          plot(choice35)
+          title(main=expression(bold("ENTER 35")))
 
+        }
         if ("choice_4.jpg" %in% image_fdir == TRUE){
           image_path <- paste0(image.folder, "choice_4.jpg")
           choice4<-magick::image_read(image_path)
           plot(choice4)
-          title(main=expression( bold("ENTER 4")), line = -4)
-        } else if ("choice_4.jpg" %in% image_fdir == FALSE) {
-          plot(0,0)
-          title(main=expression( bold("ERROR")), line = -4)
+          title(main=expression(bold("ENTER 4")))
+
         }
 
       }
@@ -142,21 +172,30 @@ if (a=="1"){
         infraorder<-"Brachyura"
         print("You organism is in the Infraorder BRACHYURA!")
 
-        if ("choice_6.jpg" %in% image_fdir == TRUE) {
-          image_path <- paste0(image.folder, "choice_6.jpg")
+        if ("choice_6.jpg" %in% image_fdir == TRUE && "choice_9.jpg" %in% image_fdir == TRUE) {
+          image_path<- paste0(image.folder, "choice_6.jpg")
           choice6<-magick::image_read(image_path)
           op <- par(mfrow=c(1,2))
           plot(choice6)
           title(main=expression( bold("ENTER 6")), line = -4)
+          image_path <- paste0(image.folder, "choice_9.jpg")
+          choice9<-magick::image_read(image_path)
+          plot(choice9)
+          title(main=expression(bold("ENTER 9")), line = -4)
+        } else {
+          if ("choice_6.jpg" %in% image_fdir == TRUE) {
+            image_path <- paste0(image.folder, "choice_6.jpg")
+            choice6<-magick::image_read(image_path)
+            plot(choice6)
+            title(main=expression( bold("ENTER 6")))
 
+          }
           if ("choice_9.jpg" %in% image_fdir == TRUE){
             image_path <- paste0(image.folder, "choice_9.jpg")
             choice9<-magick::image_read(image_path)
             plot(choice9)
-            title(main=expression( bold("ENTER 9")), line = -4)
-          } else if ("choice_9.jpg" %in% image_fdir == FALSE) {
-            plot(0,0)
-            title(main=expression( bold("ERROR")), line = -4)
+            title(main=expression( bold("ENTER 9")))
+
           }
 
         }
@@ -174,23 +213,33 @@ if (a=="1"){
           infraorder<-"Anomura"
           print("You organism is in the Infraorder ANOMURA!")
 
-          if ("choice_28.jpg" %in% image_fdir == TRUE) {
 
-            image_path <- paste0(image.folder, "choice_28.jpg")
+          if ("choice_28.jpg" %in% image_fdir == TRUE && "choice_30.jpg" %in% image_fdir == TRUE) {
+            image_path<- paste0(image.folder, "choice_28.jpg")
             choice28<-magick::image_read(image_path)
             op <- par(mfrow=c(1,2))
             plot(choice28)
-            title(main=expression( bold("ENTER 28")), line = -4)
+            title(main=expression(bold("ENTER 28")), line = -4)
+            image_path <- paste0(image.folder, "choice_30.jpg")
+            choice30<-magick::image_read(image_path)
+            plot(choice30)
+            title(main=expression(bold("ENTER 30")), line = -4)
+          } else {
+            if ("choice_28.jpg" %in% image_fdir == TRUE){
+              image_path <- paste0(image.folder, "choice_28.jpg")
+              choice28<-magick::image_read(image_path)
+              plot(choice28)
+              title(main=expression(bold("ENTER 28")))
 
+            }
             if ("choice_30.jpg" %in% image_fdir == TRUE){
               image_path <- paste0(image.folder, "choice_30.jpg")
               choice30<-magick::image_read(image_path)
               plot(choice30)
-              title(main=expression( bold("ENTER 30")), line = -4)
-            } else if ("choice_30.jpg" %in% image_fdir == FALSE) {
-              plot(0,0)
-              title(main=expression( bold("ERROR")), line = -4)
+              title(main=expression(bold("ENTER 30")))
+
             }
+
           }
 
           b <- readline(cat("Which applies to your organism?
@@ -216,21 +265,30 @@ if (a=="1"){
 
 if (b=="2") {
 
-  if ("choice_33.jpg" %in% image_fdir == TRUE) {
-    image_path <- paste0(image.folder, "choice_33.jpg")
+  if ("choice_33.jpg" %in% image_fdir == TRUE && "choice_34.jpg" %in% image_fdir == TRUE) {
+    image_path<- paste0(image.folder, "choice_33.jpg")
     choice33<-magick::image_read(image_path)
     op <- par(mfrow=c(1,2))
     plot(choice33)
-    title(main=expression( bold("ENTER 33")), line = -4)
+    title(main=expression(bold("ENTER 33")), line = -4)
+    image_path <- paste0(image.folder, "choice_34.jpg")
+    choice34<-magick::image_read(image_path)
+    plot(choice34)
+    title(main=expression(bold("ENTER 34")), line = -4)
+  } else {
+    if ("choice_33.jpg" %in% image_fdir == TRUE){
+      image_path <- paste0(image.folder, "choice_33.jpg")
+      choice33<-magick::image_read(image_path)
+      plot(choice33)
+      title(main=expression(bold("ENTER 33")))
 
+    }
     if ("choice_34.jpg" %in% image_fdir == TRUE){
       image_path <- paste0(image.folder, "choice_34.jpg")
       choice34<-magick::image_read(image_path)
       plot(choice34)
-      title(main=expression( bold("ENTER 34")), line = -4)
-    } else if ("choice_34.jpg" %in% image_fdir == FALSE) {
-      plot(0,0)
-      title(main=expression( bold("ERROR")), line = -4)
+      title(main=expression(bold("ENTER 34")))
+
     }
 
   }
@@ -250,29 +308,39 @@ if (b=="2") {
         family<-"Hippolytidae"
         genus_species <- "Hippolyte zostericola"
         print("Your organism is in the HIPPOLYTIDAE family!")
-        print ("Identification! Hippolyte zostericola")
+        print ("Identification! Hippolyte zostericola (choice 32)")
       } else {
     if (b=="35"){
           family<-"Callianassidae"
           genus_species <- "Callianassa atlantica"
-          print ("Identification! Callianassa atlantica")
+          print ("Identification! Callianassa atlantica (choice 35)")
         } else {
       if (b=="4"){
-        if ("choice_36.jpg" %in% image_fdir == TRUE) {
-          image_path <- paste0(image.folder, "choice_36.jpg")
+
+        if ("choice_36.jpg" %in% image_fdir == TRUE && "choice_37.jpg" %in% image_fdir == TRUE) {
+          image_path<- paste0(image.folder, "choice_36.jpg")
           choice36<-magick::image_read(image_path)
           op <- par(mfrow=c(1,2))
           plot(choice36)
-          title(main=expression( bold("ENTER 36")), line = -4)
+          title(main=expression(bold("ENTER 36")), line = -4)
+          image_path <- paste0(image.folder, "choice_37.jpg")
+          choice37<-magick::image_read(image_path)
+          plot(choice37)
+          title(main=expression(bold("ENTER 37")), line = -4)
+        } else {
+          if ("choice_36.jpg" %in% image_fdir == TRUE){
+            image_path <- paste0(image.folder, "choice_36.jpg")
+            choice36<-magick::image_read(image_path)
+            plot(choice36)
+            title(main=expression(bold("ENTER 36")))
 
+          }
           if ("choice_37.jpg" %in% image_fdir == TRUE){
             image_path <- paste0(image.folder, "choice_37.jpg")
             choice37<-magick::image_read(image_path)
             plot(choice37)
-            title(main=expression( bold("ENTER 37")), line = -4)
-          } else if ("choice_37.jpg" %in% image_fdir == FALSE) {
-            plot(0,0)
-            title(main=expression( bold("ERROR")), line = -4)
+            title(main=expression(bold("ENTER 37")))
+
           }
 
         }
@@ -287,24 +355,35 @@ if (b=="2") {
             }
           } else {
         if (b=="6"){
-          if ("choice_38.jpg" %in% image_fdir == TRUE) {
-            image_path <- paste0(image.folder, "choice_38.jpg")
+
+          if ("choice_38.jpg" %in% image_fdir == TRUE && "choice_7.jpg" %in% image_fdir == TRUE) {
+            image_path<- paste0(image.folder, "choice_38.jpg")
             choice38<-magick::image_read(image_path)
             op <- par(mfrow=c(1,2))
             plot(choice38)
-            title(main=expression( bold("ENTER 38")), line = -4)
+            title(main=expression(bold("ENTER 38")), line = -4)
+            image_path <- paste0(image.folder, "choice_7.jpg")
+            choice7<-magick::image_read(image_path)
+            plot(choice7)
+            title(main=expression(bold("ENTER 7")), line = -4)
+          } else {
+            if ("choice_38.jpg" %in% image_fdir == TRUE){
+              image_path <- paste0(image.folder, "choice_38.jpg")
+              choice38<-magick::image_read(image_path)
+              plot(choice38)
+              title(main=expression(bold("ENTER 38")))
 
-            if ("choice_34.jpg" %in% image_fdir == TRUE){
-              image_path <- paste0(image.folder, "choice_34.jpg")
-              choice34<-magick::image_read(image_path)
-              plot(choice34)
-              title(main=expression( bold("ENTER 34")), line = -4)
-            } else if ("choice_34.jpg" %in% image_fdir == FALSE) {
-              plot(0,0)
-              title(main=expression( bold("ERROR")), line = -4)
+            }
+            if ("choice_7.jpg" %in% image_fdir == TRUE){
+              image_path <- paste0(image.folder, "choice_7.jpg")
+              choice7<-magick::image_read(image_path)
+              plot(choice7)
+              title(main=expression(bold("ENTER 7")))
+
             }
 
           }
+
           c<-readline(cat("Which applies to your organism?
 
   Carapace triangular, resembling a small chip of stone (fig. 3);
@@ -316,24 +395,35 @@ if (b=="2") {
               }
             } else {
           if (b=="9"){
-            if ("choice_10.jpg" %in% image_fdir == TRUE) {
-              image_path <- paste0(image.folder, "choice_10.jpg")
+
+            if ("choice_10.jpg" %in% image_fdir == TRUE && "choice_19.jpg" %in% image_fdir == TRUE) {
+              image_path<- paste0(image.folder, "choice_10.jpg")
               choice10<-magick::image_read(image_path)
               op <- par(mfrow=c(1,2))
               plot(choice10)
-              title(main=expression( bold("ENTER 10")), line = -4)
+              title(main=expression(bold("ENTER 10")), line = -4)
+              image_path <- paste0(image.folder, "choice_19.jpg")
+              choice19<-magick::image_read(image_path)
+              plot(choice19)
+              title(main=expression(bold("ENTER 19")), line = -4)
+            } else {
+              if ("choice_10.jpg" %in% image_fdir == TRUE){
+                image_path <- paste0(image.folder, "choice_10.jpg")
+                choice10<-magick::image_read(image_path)
+                plot(choice10)
+                title(main=expression(bold("ENTER 10")))
 
+              }
               if ("choice_19.jpg" %in% image_fdir == TRUE){
                 image_path <- paste0(image.folder, "choice_19.jpg")
                 choice19<-magick::image_read(image_path)
                 plot(choice19)
-                title(main=expression( bold("ENTER 19")), line = -4)
-              } else if ("choice_19.jpg" %in% image_fdir == FALSE) {
-                plot(0,0)
-                title(main=expression( bold("ERROR")), line = -4)
+                title(main=expression(bold("ENTER 19")))
+
               }
 
             }
+
             c<-readline(cat("Which applies to your organism?
 
   Free living crabs, well pigmented, with eyes not reduced (ENTER 10)
@@ -349,24 +439,35 @@ if (b=="2") {
             if (b=="28"){
               family<-"Paguridae"
               print("Your organism is in the Paguridae family!")
-              if ("choice_29.jpg" %in% image_fdir == TRUE) {
-                image_path <- paste0(image.folder, "choice_29.jpg")
+
+              if ("choice_29.jpg" %in% image_fdir == TRUE && "choice_56.jpg" %in% image_fdir == TRUE) {
+                image_path<- paste0(image.folder, "choice_29.jpg")
                 choice29<-magick::image_read(image_path)
                 op <- par(mfrow=c(1,2))
                 plot(choice29)
-                title(main=expression( bold("ENTER 29")), line = -4)
+                title(main=expression(bold("ENTER 29")), line = -4)
+                image_path <- paste0(image.folder, "choice_56.jpg")
+                choice56<-magick::image_read(image_path)
+                plot(choice56)
+                title(main=expression(bold("ENTER 56")), line = -4)
+              } else {
+                if ("choice_29.jpg" %in% image_fdir == TRUE){
+                  image_path <- paste0(image.folder, "choice_29.jpg")
+                  choice29<-magick::image_read(image_path)
+                  plot(choice29)
+                  title(main=expression(bold("ENTER 29")))
 
+                }
                 if ("choice_56.jpg" %in% image_fdir == TRUE){
                   image_path <- paste0(image.folder, "choice_56.jpg")
                   choice56<-magick::image_read(image_path)
                   plot(choice56)
-                  title(main=expression( bold("ENTER 56")), line = -4)
-                } else if ("choice_56.jpg" %in% image_fdir == FALSE) {
-                  plot(0,0)
-                  title(main=expression( bold("ERROR")), line = -4)
+                  title(main=expression(bold("ENTER 56")))
+
                 }
 
               }
+
               c<-readline(cat("Which applies to your organism?
 
   Chelipeds slender; hands subcylindrical (ENTER 29)
@@ -378,24 +479,35 @@ if (b=="2") {
 
                 } else {
               if (b=="30"){
-                if ("choice_42.jpg" %in% image_fdir == TRUE) {
-                  image_path <- paste0(image.folder, "choice_42.jpg")
+
+                if ("choice_42.jpg" %in% image_fdir == TRUE && "choice_43.jpg" %in% image_fdir == TRUE) {
+                  image_path<- paste0(image.folder, "choice_42.jpg")
                   choice42<-magick::image_read(image_path)
                   op <- par(mfrow=c(1,2))
                   plot(choice42)
-                  title(main=expression( bold("ENTER 42")), line = -4)
+                  title(main=expression(bold("ENTER 42")), line = -4)
+                  image_path <- paste0(image.folder, "choice_43.jpg")
+                  choice43<-magick::image_read(image_path)
+                  plot(choice43)
+                  title(main=expression(bold("ENTER 43")), line = -4)
+                } else {
+                  if ("choice_42.jpg" %in% image_fdir == TRUE){
+                    image_path <- paste0(image.folder, "choice_42.jpg")
+                    choice42<-magick::image_read(image_path)
+                    plot(choice42)
+                    title(main=expression(bold("ENTER 42")))
 
+                  }
                   if ("choice_43.jpg" %in% image_fdir == TRUE){
                     image_path <- paste0(image.folder, "choice_43.jpg")
                     choice43<-magick::image_read(image_path)
                     plot(choice43)
-                    title(main=expression( bold("ENTER 43")), line = -4)
-                  } else if ("choice_43.jpg" %in% image_fdir == FALSE) {
-                    plot(0,0)
-                    title(main=expression( bold("ERROR")), line = -4)
+                    title(main=expression(bold("ENTER 43")))
+
                   }
 
                 }
+
                 c<-readline(cat("Which applies to your organism?
 
   Form essentially crablike, except for having fifth (last) thoracic legs reduced and hidden under carapace
@@ -429,51 +541,60 @@ if (c=="33"){
     family<-"Crangonidae"
     genus_species <- "Crangon septemspinosus"
     print("Your organism is in the Crangonidae family!")
-    print ("Identification! Crangon septemspinosus")
+    print ("Identification! Crangon septemspinosus (choice 33)")
   } else {
   if (c=="34"){
       family<-"Palaemonidae"
       genus_species <- "Palaemonetes"
       print("Your organism is in the Palaemonidae family!")
-      print ("Identification! Palaemonetes")
+      print ("Identification! Palaemonetes (choice 34)")
     } else {
     if (c=="36"){
         family<-"Upogebiidae"
         genus_species <- "Upogebia affinis"
         print("Your organism is in the Upogebiidae family!")
-        print ("Identification! Upogebia affinis")
+        print ("Identification! Upogebia affinis (choice 36)")
       } else {
       if (c=="37"){
           family<-"Laomediidae"
           genus_species <- "Naushonia crangonoides"
           print("Your organism is in the Laomediidae family!")
-          print ("Identification! Naushonia crangonoides")
+          print ("Identification! Naushonia crangonoides (choice 37)")
         } else {
         if (c=="38"){
             family<-"Parthenopidae"
             genus_species <- "Heterocrypta granulata"
             print("Your organism is in the Parthenopidae family!")
-            print ("Identification! Heterocrypta granulata")
+            print ("Identification! Heterocrypta granulata (choice 38)")
           } else {
           if (c=="7"){
               family<-"EPIALTIDAE"
               print("Your organism is in the EPIALTIDAE family!")
 
-              if ("choice_8.jpg" %in% image_fdir == TRUE) {
-                image_path <- paste0(image.folder, "choice_8.jpg")
+              if ("choice_8.jpg" %in% image_fdir == TRUE && "choice_39.jpg" %in% image_fdir == TRUE) {
+                image_path<- paste0(image.folder, "choice_8.jpg")
                 choice8<-magick::image_read(image_path)
                 op <- par(mfrow=c(1,2))
                 plot(choice8)
-                title(main=expression( bold("ENTER 8")), line = -4)
+                title(main=expression(bold("ENTER 8")), line = -4)
+                image_path <- paste0(image.folder, "choice_39.jpg")
+                choice39<-magick::image_read(image_path)
+                plot(choice39)
+                title(main=expression(bold("ENTER 39")), line = -4)
+              } else {
+                if ("choice_8.jpg" %in% image_fdir == TRUE){
+                  image_path <- paste0(image.folder, "choice_8.jpg")
+                  choice8<-magick::image_read(image_path)
+                  plot(choice8)
+                  title(main=expression(bold("ENTER 8")))
 
+                }
                 if ("choice_39.jpg" %in% image_fdir == TRUE){
                   image_path <- paste0(image.folder, "choice_39.jpg")
                   choice39<-magick::image_read(image_path)
                   plot(choice39)
-                  title(main=expression( bold("ENTER 39")), line = -4)
-                } else if ("choice_39.jpg" %in% image_fdir == FALSE) {
-                  plot(0,0)
-                  title(main=expression( bold("ERROR")), line = -4)
+                  title(main=expression(bold("ENTER 39")))
+
                 }
 
               }
@@ -488,24 +609,35 @@ if (c=="33"){
               }
             } else {
             if (c=="10") {
-              if ("choice_11.jpg" %in% image_fdir == TRUE) {
-                image_path <- paste0(image.folder, "choice_11.jpg")
+
+              if ("choice_11.jpg" %in% image_fdir == TRUE && "choice_23.jpg" %in% image_fdir == TRUE) {
+                image_path<- paste0(image.folder, "choice_11.jpg")
                 choice11<-magick::image_read(image_path)
                 op <- par(mfrow=c(1,2))
                 plot(choice11)
-                title(main=expression( bold("ENTER 11")), line = -4)
+                title(main=expression(bold("ENTER 11")), line = -4)
+                image_path <- paste0(image.folder, "choice_23.jpg")
+                choice23<-magick::image_read(image_path)
+                plot(choice23)
+                title(main=expression(bold("ENTER 23")), line = -4)
+              } else {
+                if ("choice_11.jpg" %in% image_fdir == TRUE){
+                  image_path <- paste0(image.folder, "choice_11.jpg")
+                  choice11<-magick::image_read(image_path)
+                  plot(choice11)
+                  title(main=expression(bold("ENTER 11")))
 
+                }
                 if ("choice_23.jpg" %in% image_fdir == TRUE){
                   image_path <- paste0(image.folder, "choice_23.jpg")
                   choice23<-magick::image_read(image_path)
                   plot(choice23)
-                  title(main=expression( bold("ENTER 23")), line = -4)
-                } else if ("choice_23.jpg" %in% image_fdir == FALSE) {
-                  plot(0,0)
-                  title(main=expression( bold("ERROR")), line = -4)
+                  title(main=expression(bold("ENTER 23")))
+
                 }
 
               }
+
                 d<-readline(cat("Which applies to your organism?
 
   Carapace outline varies, but characteristically front margin is curved and bears a series of teeth between the
@@ -520,24 +652,35 @@ if (c=="33"){
                 }
               } else {
               if (c=="19") {
-                if ("choice_30.jpg" %in% image_fdir == TRUE) {
-                  image_path <- paste0(image.folder, "choice_30.jpg")
+
+                if ("choice_30.jpg" %in% image_fdir == TRUE && "choice_20.jpg" %in% image_fdir == TRUE) {
+                  image_path<- paste0(image.folder, "choice_30.jpg")
                   choice30<-magick::image_read(image_path)
                   op <- par(mfrow=c(1,2))
                   plot(choice30)
-                  title(main=expression( bold("ENTER 30")), line = -4)
+                  title(main=expression(bold("ENTER 30")), line = -4)
+                  image_path <- paste0(image.folder, "choice_20.jpg")
+                  choice20<-magick::image_read(image_path)
+                  plot(choice20)
+                  title(main=expression(bold("ENTER 20")), line = -4)
+                } else {
+                  if ("choice_30.jpg" %in% image_fdir == TRUE){
+                    image_path <- paste0(image.folder, "choice_30.jpg")
+                    choice30<-magick::image_read(image_path)
+                    plot(choice30)
+                    title(main=expression(bold("ENTER 30")))
 
+                  }
                   if ("choice_20.jpg" %in% image_fdir == TRUE){
                     image_path <- paste0(image.folder, "choice_20.jpg")
                     choice20<-magick::image_read(image_path)
                     plot(choice20)
-                    title(main=expression( bold("ENTER 20")), line = -4)
-                  } else if ("choice_20.jpg" %in% image_fdir == FALSE) {
-                    plot(0,0)
-                    title(main=expression( bold("ERROR")), line = -4)
+                    title(main=expression(bold("ENTER 20")))
+
                   }
 
                 }
+
                   d<-readline(cat("Which applies to your organism?
 
   Fifth (last) pair of thoracic legs very small and tucked up under carapace.
@@ -551,21 +694,30 @@ if (c=="33"){
                 } else {
                 if (c=="29"){
 
-                  if ("choice_57.jpg" %in% image_fdir == TRUE) {
-                    image_path <- paste0(image.folder, "choice_57.jpg")
+                  if ("choice_57.jpg" %in% image_fdir == TRUE && "choice_58.jpg" %in% image_fdir == TRUE) {
+                    image_path<- paste0(image.folder, "choice_57.jpg")
                     choice57<-magick::image_read(image_path)
                     op <- par(mfrow=c(1,2))
                     plot(choice57)
-                    title(main=expression( bold("ENTER 57")), line = -4)
+                    title(main=expression(bold("ENTER 57")), line = -4)
+                    image_path <- paste0(image.folder, "choice_58.jpg")
+                    choice58<-magick::image_read(image_path)
+                    plot(choice58)
+                    title(main=expression(bold("ENTER 58")), line = -4)
+                  } else {
+                    if ("choice_57.jpg" %in% image_fdir == TRUE){
+                      image_path <- paste0(image.folder, "choice_57.jpg")
+                      choice57<-magick::image_read(image_path)
+                      plot(choice57)
+                      title(main=expression(bold("ENTER 57")))
 
+                    }
                     if ("choice_58.jpg" %in% image_fdir == TRUE){
                       image_path <- paste0(image.folder, "choice_58.jpg")
                       choice58<-magick::image_read(image_path)
                       plot(choice58)
-                      title(main=expression( bold("ENTER 58")), line = -4)
-                    } else if ("choice_58.jpg" %in% image_fdir == FALSE) {
-                      plot(0,0)
-                      title(main=expression( bold("ERROR")), line = -4)
+                      title(main=expression(bold("ENTER 58")))
+
                     }
 
                   }
@@ -581,19 +733,19 @@ if (c=="33"){
                 } else {
                   if (c=="56"){
                     genus_species <- "Pagurus pollicaris"
-                    print ("Identification! Pagurus pollicaris")
+                    print ("Identification! Pagurus pollicaris (choice 56)")
                     } else {
                     if (c=="42"){
                     family<-"PORCELLANIDAE"
                     print("Your organism is in the PORCELLANIDAE family!")
                     genus_species <- "Polyonyx macrocheles"
-                    print ("Identification! Polyonyx macrocheles")
+                    print ("Identification! Polyonyx macrocheles (choice 42)")
                 } else {
                       if (c=="43"){
                     family<-"HIPPIDAE"
                     print("Your organism is in the HIPPIDAE family!")
                     genus_species <- "Emerita talpoida"
-                    print ("Identification! Emerita talpoida")
+                    print ("Identification! Emerita talpoida (choice 43)")
                   } else {
                         if (c=="NA"){
 
@@ -614,24 +766,33 @@ if (c=="33"){
 }
 
 if (d=="8"){
-  if ("choice_40.jpg" %in% image_fdir == TRUE) {
-    image_path <- paste0(image.folder, "choice_40.jpg")
+
+  if ("choice_40.jpg" %in% image_fdir == TRUE && "choice_41.jpg" %in% image_fdir == TRUE) {
+    image_path<- paste0(image.folder, "choice_40.jpg")
     choice40<-magick::image_read(image_path)
     op <- par(mfrow=c(1,2))
     plot(choice40)
-    title(main=expression( bold("ENTER 40")), line = -4)
-
+    title(main=expression(bold("ENTER 40")), line = -4)
+    image_path <- paste0(image.folder, "choice_41.jpg")
+    choice41<-magick::image_read(image_path)
+    plot(choice41)
+    title(main=expression(bold("ENTER 41")), line = -4)
+  } else {
+    if ("choice_40.jpg" %in% image_fdir == TRUE){
+      image_path <- paste0(image.folder, "choice_40.jpg")
+      choice40<-magick::image_read(image_path)
+      plot(choice40)
+      title(main=expression(bold("ENTER 40")))
+    }
     if ("choice_41.jpg" %in% image_fdir == TRUE){
       image_path <- paste0(image.folder, "choice_41.jpg")
       choice41<-magick::image_read(image_path)
       plot(choice41)
-      title(main=expression( bold("ENTER 41")), line = -4)
-    } else if ("choice_41.jpg" %in% image_fdir == FALSE) {
-      plot(0,0)
-      title(main=expression( bold("ERROR")), line = -4)
+      title(main=expression(bold("ENTER 41")))
     }
 
   }
+
   e<-readline(cat("Which applies to your organism?
 
   With six spines in the median dorsal row; few dorsal tubercles (fig. 1) (ENTER 40)
@@ -643,28 +804,36 @@ if (d=="8"){
 } else {
   if (d=="39"){
     genus_species <- "Pelia mutica"
-    print ("Identification! Pelia mutica")
+    print ("Identification! Pelia mutica (choice 39)")
   } else {
     if (d=="11"){
 
-      if ("choice_12.jpg" %in% image_fdir == TRUE) {
-        image_path <- paste0(image.folder, "choice_12.jpg")
+      if ("choice_12.jpg" %in% image_fdir == TRUE && "choice_13.jpg" %in% image_fdir == TRUE) {
+        image_path<- paste0(image.folder, "choice_12.jpg")
         choice12<-magick::image_read(image_path)
         op <- par(mfrow=c(1,2))
         plot(choice12)
-        title(main=expression( bold("ENTER 12")), line = -4)
-
+        title(main=expression(bold("ENTER 12")), line = -4)
+        image_path <- paste0(image.folder, "choice_13.jpg")
+        choice13<-magick::image_read(image_path)
+        plot(choice13)
+        title(main=expression(bold("ENTER 13")), line = -4)
+      } else {
+        if ("choice_12.jpg" %in% image_fdir == TRUE){
+          image_path <- paste0(image.folder, "choice_12.jpg")
+          choice12<-magick::image_read(image_path)
+          plot(choice12)
+          title(main=expression(bold("ENTER 12")))
+        }
         if ("choice_13.jpg" %in% image_fdir == TRUE){
           image_path <- paste0(image.folder, "choice_13.jpg")
           choice13<-magick::image_read(image_path)
           plot(choice13)
-          title(main=expression( bold("ENTER 13")), line = -4)
-        } else if ("choice_13.jpg" %in% image_fdir == FALSE) {
-          plot(0,0)
-          title(main=expression( bold("ERROR")), line = -4)
+          title(main=expression(bold("ENTER 13")))
         }
 
       }
+
       e<-readline(cat("Which applies to your organism?
 
   First antennae (antennules) folded longitudinally or nearly so (fig. 4) (Family CANCRIDAE) (ENTER 12)
@@ -676,21 +845,28 @@ if (d=="8"){
     } else {
       if (d=="23"){
 
-        if ("choice_24.jpg" %in% image_fdir == TRUE) {
-          image_path <- paste0(image.folder, "choice_24.jpg")
+        if ("choice_24.jpg" %in% image_fdir == TRUE && "choice_25.jpg" %in% image_fdir == TRUE) {
+          image_path<- paste0(image.folder, "choice_24.jpg")
           choice24<-magick::image_read(image_path)
           op <- par(mfrow=c(1,2))
           plot(choice24)
-          title(main=expression( bold("ENTER 24")), line = -4)
-
+          title(main=expression(bold("ENTER 24")), line = -4)
+          image_path <- paste0(image.folder, "choice_25.jpg")
+          choice25<-magick::image_read(image_path)
+          plot(choice25)
+          title(main=expression(bold("ENTER 25")), line = -4)
+        } else {
+          if ("choice_24.jpg" %in% image_fdir == TRUE){
+            image_path <- paste0(image.folder, "choice_24.jpg")
+            choice24<-magick::image_read(image_path)
+            plot(choice24)
+            title(main=expression(bold("ENTER 24")))
+          }
           if ("choice_25.jpg" %in% image_fdir == TRUE){
             image_path <- paste0(image.folder, "choice_25.jpg")
             choice25<-magick::image_read(image_path)
             plot(choice25)
-            title(main=expression( bold("ENTER 25")), line = -4)
-          } else if ("choice_25.jpg" %in% image_fdir == FALSE) {
-            plot(0,0)
-            title(main=expression( bold("ERROR")), line = -4)
+            title(main=expression(bold("ENTER 25")))
           }
 
         }
@@ -710,24 +886,32 @@ if (d=="8"){
         if (d=="30"){
           infraorder<-"Anomura"
 
-          if ("choice_42.jpg" %in% image_fdir == TRUE) {
-            image_path <- paste0(image.folder, "choice_42.jpg")
+          if ("choice_42.jpg" %in% image_fdir == TRUE && "choice_43.jpg" %in% image_fdir == TRUE) {
+            image_path<- paste0(image.folder, "choice_42.jpg")
             choice42<-magick::image_read(image_path)
             op <- par(mfrow=c(1,2))
             plot(choice42)
-            title(main=expression( bold("ENTER 42")), line = -4)
-
+            title(main=expression(bold("ENTER 42")), line = -4)
+            image_path <- paste0(image.folder, "choice_43.jpg")
+            choice43<-magick::image_read(image_path)
+            plot(choice43)
+            title(main=expression(bold("ENTER 43")), line = -4)
+          } else {
+            if ("choice_42.jpg" %in% image_fdir == TRUE){
+              image_path <- paste0(image.folder, "choice_42.jpg")
+              choice42<-magick::image_read(image_path)
+              plot(choice42)
+              title(main=expression(bold("ENTER 42")))
+            }
             if ("choice_43.jpg" %in% image_fdir == TRUE){
               image_path <- paste0(image.folder, "choice_43.jpg")
               choice43<-magick::image_read(image_path)
               plot(choice43)
-              title(main=expression( bold("ENTER 43")), line = -4)
-            } else if ("choice_43.jpg" %in% image_fdir == FALSE) {
-              plot(0,0)
-              title(main=expression( bold("ERROR")), line = -4)
+              title(main=expression(bold("ENTER 43")))
             }
 
           }
+
           e<-readline(cat("Which applies to your organism?
 
   Form essentially crablike, except for having fifth (last) thoracic legs reduced and hidden under carapace
@@ -743,11 +927,11 @@ if (d=="8"){
         } else {
           if (d=="57"){
             genus_species <- "Pagurus annulipes"
-            print ("Identification! Pagurus annulipes")
+            print ("Identification! Pagurus annulipes (choice 57)")
           } else {
             if (d=="58"){
               genus_species <- "Pagurus longicarpus"
-              print ("Identification! Pagurus longicarpus")
+              print ("Identification! Pagurus longicarpus (choice 58)")
             } else {
               if (d=="NA"){
 
@@ -764,31 +948,38 @@ if (d=="8"){
 
 if (e=="40"){
   genus_species <- "Libinia dubia"
-  print ("Identification! Libinia dubia")
+  print ("Identification! Libinia dubia (choice 40)")
 } else {
   if (e=="41"){
     genus_species <- "Libinia emarginata"
-    print ("Identification! Libinia emarginata")
+    print ("Identification! Libinia emarginata (choice 41)")
   } else {
     if (e=="12"){
       family<-"CANCRIDAE"
       print("Your organism is in the CANCRIDAE family!")
 
-      if ("choice_44.jpg" %in% image_fdir == TRUE) {
-        image_path <- paste0(image.folder, "choice_44.jpg")
+      if ("choice_44.jpg" %in% image_fdir == TRUE && "choice_45.jpg" %in% image_fdir == TRUE) {
+        image_path<- paste0(image.folder, "choice_44.jpg")
         choice44<-magick::image_read(image_path)
         op <- par(mfrow=c(1,2))
         plot(choice44)
-        title(main=expression( bold("ENTER 44")), line = -4)
-
+        title(main=expression(bold("ENTER 44")), line = -4)
+        image_path <- paste0(image.folder, "choice_45.jpg")
+        choice45<-magick::image_read(image_path)
+        plot(choice45)
+        title(main=expression(bold("ENTER 45")), line = -4)
+      } else {
+        if ("choice_44.jpg" %in% image_fdir == TRUE){
+          image_path <- paste0(image.folder, "choice_44.jpg")
+          choice44<-magick::image_read(image_path)
+          plot(choice44)
+          title(main=expression(bold("ENTER 44")))
+        }
         if ("choice_45.jpg" %in% image_fdir == TRUE){
           image_path <- paste0(image.folder, "choice_45.jpg")
           choice45<-magick::image_read(image_path)
           plot(choice45)
-          title(main=expression( bold("ENTER 45")), line = -4)
-        } else if ("choice_45.jpg" %in% image_fdir == FALSE) {
-          plot(0,0)
-          title(main=expression( bold("ERROR")), line = -4)
+          title(main=expression(bold("ENTER 45")))
         }
 
       }
@@ -805,21 +996,29 @@ if (e=="40"){
 
     } else{
       if (e=="13"){
-        if ("choice_14.jpg" %in% image_fdir == TRUE) {
-          image_path <- paste0(image.folder, "choice_14.jpg")
+
+        if ("choice_14.jpg" %in% image_fdir == TRUE && "choice_18.jpg" %in% image_fdir == TRUE) {
+          image_path<- paste0(image.folder, "choice_14.jpg")
           choice14<-magick::image_read(image_path)
           op <- par(mfrow=c(1,2))
           plot(choice14)
-          title(main=expression( bold("ENTER 14")), line = -4)
-
+          title(main=expression(bold("ENTER 14")), line = -4)
+          image_path <- paste0(image.folder, "choice_18.jpg")
+          choice18<-magick::image_read(image_path)
+          plot(choice18)
+          title(main=expression(bold("ENTER 18")), line = -4)
+        } else {
+          if ("choice_14.jpg" %in% image_fdir == TRUE){
+            image_path <- paste0(image.folder, "choice_14.jpg")
+            choice14<-magick::image_read(image_path)
+            plot(choice14)
+            title(main=expression(bold("ENTER 14")))
+          }
           if ("choice_18.jpg" %in% image_fdir == TRUE){
             image_path <- paste0(image.folder, "choice_18.jpg")
             choice18<-magick::image_read(image_path)
             plot(choice18)
-            title(main=expression( bold("ENTER 18")), line = -4)
-          } else if ("choice_18.jpg" %in% image_fdir == FALSE) {
-            plot(0,0)
-            title(main=expression( bold("ERROR")), line = -4)
+            title(main=expression(bold("ENTER 18")))
           }
 
         }
@@ -838,21 +1037,28 @@ if (e=="40"){
           family<-"GRAPSIDAE"
           print("Your organism is in the GRAPSIDAE family!")
 
-          if ("choice_46.jpg" %in% image_fdir == TRUE) {
-            image_path <- paste0(image.folder, "choice_46.jpg")
+          if ("choice_46.jpg" %in% image_fdir == TRUE && "choice_47.jpg" %in% image_fdir == TRUE) {
+            image_path<- paste0(image.folder, "choice_46.jpg")
             choice46<-magick::image_read(image_path)
             op <- par(mfrow=c(1,2))
             plot(choice46)
-            title(main=expression( bold("ENTER 46")), line = -4)
-
+            title(main=expression(bold("ENTER 46")), line = -4)
+            image_path <- paste0(image.folder, "choice_47.jpg")
+            choice47<-magick::image_read(image_path)
+            plot(choice47)
+            title(main=expression(bold("ENTER 47")), line = -4)
+          } else {
+            if ("choice_46.jpg" %in% image_fdir == TRUE){
+              image_path <- paste0(image.folder, "choice_46.jpg")
+              choice46<-magick::image_read(image_path)
+              plot(choice46)
+              title(main=expression(bold("ENTER 46")))
+            }
             if ("choice_47.jpg" %in% image_fdir == TRUE){
               image_path <- paste0(image.folder, "choice_47.jpg")
               choice47<-magick::image_read(image_path)
               plot(choice47)
-              title(main=expression( bold("ENTER 47")), line = -4)
-            } else if ("choice_47.jpg" %in% image_fdir == FALSE) {
-              plot(0,0)
-              title(main=expression( bold("ERROR")), line = -4)
+              title(main=expression(bold("ENTER 47")))
             }
 
           }
@@ -873,21 +1079,28 @@ if (e=="40"){
             family<-"OCYPODIDAE"
             print("Your organism is in the OCYPODIDAE family!")
 
-            if ("choice_26.jpg" %in% image_fdir == TRUE) {
-              image_path <- paste0(image.folder, "choice_26.jpg")
+            if ("choice_26.jpg" %in% image_fdir == TRUE && "choice_48.jpg" %in% image_fdir == TRUE) {
+              image_path<- paste0(image.folder, "choice_26.jpg")
               choice26<-magick::image_read(image_path)
               op <- par(mfrow=c(1,2))
               plot(choice26)
-              title(main=expression( bold("ENTER 26")), line = -4)
-
+              title(main=expression(bold("ENTER 26")), line = -4)
+              image_path <- paste0(image.folder, "choice_48.jpg")
+              choice48<-magick::image_read(image_path)
+              plot(choice48)
+              title(main=expression(bold("ENTER 48")), line = -4)
+            } else {
+              if ("choice_26.jpg" %in% image_fdir == TRUE){
+                image_path <- paste0(image.folder, "choice_26.jpg")
+                choice26<-magick::image_read(image_path)
+                plot(choice26)
+                title(main=expression(bold("ENTER 26")))
+              }
               if ("choice_48.jpg" %in% image_fdir == TRUE){
                 image_path <- paste0(image.folder, "choice_48.jpg")
                 choice48<-magick::image_read(image_path)
                 plot(choice48)
-                title(main=expression( bold("ENTER 48")), line = -4)
-              } else if ("choice_48.jpg" %in% image_fdir == FALSE) {
-                plot(0,0)
-                title(main=expression( bold("ERROR")), line = -4)
+                title(main=expression(bold("ENTER 48")))
               }
 
             }
@@ -907,13 +1120,13 @@ if (e=="40"){
               family<-"PORCELLANIDAE"
               print("Your organism is in the PORCELLANIDAE family!")
               genus_species <- "Polyonyx macrocheles"
-              print ("Identification! Polyonyx macrocheles")
+              print ("Identification! Polyonyx macrocheles (choice 42)")
             } else {
               if (e=="43"){
                 family<-"HIPPIDAE"
                 print("Your organism is in the HIPPIDAE family!")
                 genus_species <- "Emerita talpoida"
-                print ("Identification! Emerita talpoida")
+                print ("Identification! Emerita talpoida (choice 43)")
               } else {
                 if (e=="NA"){
 
@@ -931,29 +1144,36 @@ if (e=="40"){
 
 if (f=="44"){
   genus_species <- "Cancer irroratus"
-  print ("Identification! Cancer irroratus")
+  print ("Identification! Cancer irroratus (choice 44)")
 } else {
   if (f=="45"){
     genus_species <- "Cancer borealis"
-    print ("Identification! Cancer borealis")
+    print ("Identification! Cancer borealis (choice 45)")
   } else {
     if (f=="14"){
 
-      if ("choice_49.jpg" %in% image_fdir == TRUE) {
-        image_path <- paste0(image.folder, "choice_49.jpg")
+      if ("choice_49.jpg" %in% image_fdir == TRUE && "choice_15.jpg" %in% image_fdir == TRUE) {
+        image_path<- paste0(image.folder, "choice_49.jpg")
         choice49<-magick::image_read(image_path)
         op <- par(mfrow=c(1,2))
         plot(choice49)
-        title(main=expression( bold("ENTER 49")), line = -4)
-
+        title(main=expression(bold("ENTER 49")), line = -4)
+        image_path <- paste0(image.folder, "choice_15.jpg")
+        choice15<-magick::image_read(image_path)
+        plot(choice15)
+        title(main=expression(bold("ENTER 15")), line = -4)
+      } else {
+        if ("choice_49.jpg" %in% image_fdir == TRUE){
+          image_path <- paste0(image.folder, "choice_49.jpg")
+          choice49<-magick::image_read(image_path)
+          plot(choice49)
+          title(main=expression(bold("ENTER 49")))
+        }
         if ("choice_15.jpg" %in% image_fdir == TRUE){
           image_path <- paste0(image.folder, "choice_15.jpg")
           choice15<-magick::image_read(image_path)
           plot(choice15)
-          title(main=expression( bold("ENTER 15")), line = -4)
-        } else if ("choice_15.jpg" %in% image_fdir == FALSE) {
-          plot(0,0)
-          title(main=expression( bold("ERROR")), line = -4)
+          title(main=expression(bold("ENTER 15")))
         }
 
       }
@@ -974,21 +1194,28 @@ if (f=="44"){
     } else {
       if (f=="18"){
 
-        if ("choice_50.jpg" %in% image_fdir == TRUE) {
-          image_path <- paste0(image.folder, "choice_50.jpg")
+        if ("choice_50.jpg" %in% image_fdir == TRUE && "choice_51.jpg" %in% image_fdir == TRUE) {
+          image_path<- paste0(image.folder, "choice_50.jpg")
           choice50<-magick::image_read(image_path)
           op <- par(mfrow=c(1,2))
           plot(choice50)
-          title(main=expression( bold("ENTER 50")), line = -4)
-
+          title(main=expression(bold("ENTER 50")), line = -4)
+          image_path <- paste0(image.folder, "choice_51.jpg")
+          choice51<-magick::image_read(image_path)
+          plot(choice51)
+          title(main=expression(bold("ENTER 51")), line = -4)
+        } else {
+          if ("choice_50.jpg" %in% image_fdir == TRUE){
+            image_path <- paste0(image.folder, "choice_50.jpg")
+            choice50<-magick::image_read(image_path)
+            plot(choice50)
+            title(main=expression(bold("ENTER 50")))
+          }
           if ("choice_51.jpg" %in% image_fdir == TRUE){
             image_path <- paste0(image.folder, "choice_51.jpg")
             choice51<-magick::image_read(image_path)
             plot(choice51)
-            title(main=expression( bold("ENTER 51")), line = -4)
-          } else if ("choice_51.jpg" %in% image_fdir == FALSE) {
-            plot(0,0)
-            title(main=expression( bold("ERROR")), line = -4)
+            title(main=expression(bold("ENTER 51")))
           }
 
         }
@@ -1009,31 +1236,40 @@ if (f=="44"){
       } else {
         if (f=="46"){
           genus_species <- "Sesarma reticulatum"
-          print ("Identification! Sesarma reticulatum")
+          print ("Identification! Sesarma reticulatum (choice 46)")
         } else {
           if (f=="47"){
             genus_species <- "Planes minutus"
-            print ("Identification! Planes minutus")
+            print ("Identification! Planes minutus (choice 47)")
           } else {
             if (f=="26"){
-              if ("choice_52.jpg" %in% image_fdir == TRUE) {
-                image_path <- paste0(image.folder, "choice_52.jpg")
+
+              if ("choice_52.jpg" %in% image_fdir == TRUE && "choice_53.jpg" %in% image_fdir == TRUE) {
+                image_path<- paste0(image.folder, "choice_52.jpg")
                 choice52<-magick::image_read(image_path)
                 op <- par(mfrow=c(1,2))
                 plot(choice52)
-                title(main=expression( bold("ENTER 52")), line = -4)
-
+                title(main=expression(bold("ENTER 52")), line = -4)
+                image_path <- paste0(image.folder, "choice_53.jpg")
+                choice53<-magick::image_read(image_path)
+                plot(choice53)
+                title(main=expression(bold("ENTER 53")), line = -4)
+              } else {
+                if ("choice_52.jpg" %in% image_fdir == TRUE){
+                  image_path <- paste0(image.folder, "choice_52.jpg")
+                  choice52<-magick::image_read(image_path)
+                  plot(choice52)
+                  title(main=expression(bold("ENTER 52")))
+                }
                 if ("choice_53.jpg" %in% image_fdir == TRUE){
                   image_path <- paste0(image.folder, "choice_53.jpg")
                   choice53<-magick::image_read(image_path)
                   plot(choice53)
-                  title(main=expression( bold("ENTER 53")), line = -4)
-                } else if ("choice_53.jpg" %in% image_fdir == FALSE) {
-                  plot(0,0)
-                  title(main=expression( bold("ERROR")), line = -4)
+                  title(main=expression(bold("ENTER 53")))
                 }
 
               }
+
               g<-readline(cat("Which applies to your organism?
 
   Carapace uniformly dark, almost black;
@@ -1052,7 +1288,7 @@ if (f=="44"){
             } else {
               if (f=="48"){
                 genus_species <- "Uca pugilator"
-                print ("Identification! Uca pugilator")
+                print ("Identification! Uca pugilator (choice 48)")
               } else {
                 if (f=="NA"){
 
@@ -1072,27 +1308,34 @@ if (g=="49"){
   family<-"Carcinidae"
   print("Your organism is in the Carcinidae family!")
   genus_species <- "Carcinus maenas"
-  print ("Identification! Carcinus maenas")
+  print ("Identification! Carcinus maenas (choice 49)")
 } else {
   if (g=="15"){
     family<-"XANTHIDAE"
     print("Your organism is in the XANTHIDAE family!")
 
-    if ("choice_16.jpg" %in% image_fdir == TRUE) {
-      image_path <- paste0(image.folder, "choice_16.jpg")
+    if ("choice_16.jpg" %in% image_fdir == TRUE && "choice_54.jpg" %in% image_fdir == TRUE) {
+      image_path<- paste0(image.folder, "choice_16.jpg")
       choice16<-magick::image_read(image_path)
       op <- par(mfrow=c(1,2))
       plot(choice16)
-      title(main=expression( bold("ENTER 16")), line = -4)
-
+      title(main=expression(bold("ENTER 16")), line = -4)
+      image_path <- paste0(image.folder, "choice_54.jpg")
+      choice54<-magick::image_read(image_path)
+      plot(choice54)
+      title(main=expression(bold("ENTER 54")), line = -4)
+    } else {
+      if ("choice_16.jpg" %in% image_fdir == TRUE){
+        image_path <- paste0(image.folder, "choice_16.jpg")
+        choice16<-magick::image_read(image_path)
+        plot(choice16)
+        title(main=expression(bold("ENTER 16")))
+      }
       if ("choice_54.jpg" %in% image_fdir == TRUE){
         image_path <- paste0(image.folder, "choice_54.jpg")
         choice54<-magick::image_read(image_path)
         plot(choice54)
-        title(main=expression( bold("ENTER 54")), line = -4)
-      } else if ("choice_54.jpg" %in% image_fdir == FALSE) {
-        plot(0,0)
-        title(main=expression( bold("ERROR")), line = -4)
+        title(main=expression(bold("ENTER 54")))
       }
 
     }
@@ -1111,21 +1354,21 @@ if (g=="49"){
       family<-"Ovalipidae"
       print("Your organism is in the Ovalipidae family!")
       genus_species <- "Ovalipes ocellatus"
-      print ("Identification! Ovalipes ocellatus")
+      print ("Identification! Ovalipes ocellatus (choice 50)")
     } else {
       if (g =="51"){
         family<-"Portunidae"
         print("Your organism is in the Portunidae family!")
         genus_species <- "Callinectes sapidus"
-        print ("Identification! Callinectes sapidus")
+        print ("Identification! Callinectes sapidus (choice 51)")
       } else {
         if (g=="52"){
           genus_species <- "Uca pugnax"
-          print ("Identification! Uca pugnax")
+          print ("Identification! Uca pugnax (choice 52)")
         } else {
           if (g=="53"){
             genus_species <- "Uca minax"
-            print ("Identification! Uca minax")
+            print ("Identification! Uca minax (choice 53)")
           } else {
             if (g=="NA"){
 
@@ -1140,24 +1383,33 @@ if (g=="49"){
 }
 
 if (h=="16"){
-  if ("choice_55.jpg" %in% image_fdir == TRUE) {
-    image_path <- paste0(image.folder, "choice_55.jpg")
+
+  if ("choice_55.jpg" %in% image_fdir == TRUE && "choice_17.jpg" %in% image_fdir == TRUE) {
+    image_path<- paste0(image.folder, "choice_55.jpg")
     choice55<-magick::image_read(image_path)
     op <- par(mfrow=c(1,2))
     plot(choice55)
-    title(main=expression( bold("ENTER 55")), line = -4)
-
+    title(main=expression(bold("ENTER 55")), line = -4)
+    image_path <- paste0(image.folder, "choice_17.jpg")
+    choice17<-magick::image_read(image_path)
+    plot(choice17)
+    title(main=expression(bold("ENTER 17")), line = -4)
+  } else {
+    if ("choice_55.jpg" %in% image_fdir == TRUE){
+      image_path <- paste0(image.folder, "choice_55.jpg")
+      choice55<-magick::image_read(image_path)
+      plot(choice55)
+      title(main=expression(bold("ENTER 55")))
+    }
     if ("choice_17.jpg" %in% image_fdir == TRUE){
       image_path <- paste0(image.folder, "choice_17.jpg")
       choice17<-magick::image_read(image_path)
       plot(choice17)
-      title(main=expression( bold("ENTER 17")), line = -4)
-    } else if ("choice_17.jpg" %in% image_fdir == FALSE) {
-      plot(0,0)
-      title(main=expression( bold("ERROR")), line = -4)
+      title(main=expression(bold("ENTER 17")))
     }
 
   }
+
   i<-readline(cat("Which applies to your organism?
 
   Movable finger of major cheliped with a heavy blunt tooth near base (fig. 26);
@@ -1172,7 +1424,7 @@ if (h=="16"){
 } else {
   if (h=="54"){
     genus_species <- "Rhithropanopeus harrisii"
-    print ("Identification! Rhithropanopeus harrisii")
+    print ("Identification! Rhithropanopeus harrisii (choice 54)")
   } else {
     if (h=="NA"){
 
@@ -1185,29 +1437,38 @@ if (h=="16"){
 
 if (i=="55"){
   genus_species <- "Panopeus herbsti"
-  print ("Identification! Panopeus herbsti")
+  print ("Identification! Panopeus herbsti (choice 55)")
 } else {
   if (i=="17"){
     family <- "Panopeidae"
     print("Your organism is in the Panopeidae family!")
-    if ("choice_59.jpg" %in% image_fdir == TRUE) {
-      image_path <- paste0(image.folder, "choice_59.jpg")
+
+    if ("choice_59.jpg" %in% image_fdir == TRUE && "choice_60.jpg" %in% image_fdir == TRUE) {
+      image_path<- paste0(image.folder, "choice_59.jpg")
       choice59<-magick::image_read(image_path)
       op <- par(mfrow=c(1,2))
       plot(choice59)
-      title(main=expression( bold("ENTER 59")), line = -4)
-
+      title(main=expression(bold("ENTER 59")), line = -4)
+      image_path <- paste0(image.folder, "choice_60.jpg")
+      choice60<-magick::image_read(image_path)
+      plot(choice60)
+      title(main=expression(bold("ENTER 60")), line = -4)
+    } else {
+      if ("choice_59.jpg" %in% image_fdir == TRUE){
+        image_path <- paste0(image.folder, "choice_59.jpg")
+        choice59<-magick::image_read(image_path)
+        plot(choice59)
+        title(main=expression(bold("ENTER 59")))
+      }
       if ("choice_60.jpg" %in% image_fdir == TRUE){
         image_path <- paste0(image.folder, "choice_60.jpg")
         choice60<-magick::image_read(image_path)
         plot(choice60)
-        title(main=expression( bold("ENTER 60")), line = -4)
-      } else if ("choice_60.jpg" %in% image_fdir == FALSE) {
-        plot(0,0)
-        title(main=expression( bold("ERROR")), line = -4)
+        title(main=expression(bold("ENTER 60")))
       }
 
     }
+
     j<-readline(cat("Which applies to your organism?
 
   With an elongated dark red spot on the inner (concealed) surface of each maxilliped
@@ -1234,11 +1495,11 @@ if (i=="55"){
 
 if (j=="59"){
   genus_species <- "Eurypanopeus depressus"
-  print ("Identification! Eurypanopeus depressus")
+  print ("Identification! Eurypanopeus depressus (choice 59)")
 } else {
   if (j=="60"){
     genus_species <- "Neopanope texana"
-    print ("Identification! Neopanope texana")
+    print ("Identification! Neopanope texana (choice 60)")
   } else {
     if (j=="NA"){
 
@@ -1296,6 +1557,6 @@ Your organism identification is
 "
 "))
 
-return("No Errors? Congratulations! You are clearly in your dichotomous key era! Slay!! If you have errors, no worries girlie pop, it can still be a brat summer! Just run that shit back!")
+return("No Errors? Congratulations! You are clearly in your dichotomous key era! Slay!! If you have errors, no worries, it can still be a brat summer! Just rerun the function to begin again!")
 }
 
