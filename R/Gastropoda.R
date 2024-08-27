@@ -575,17 +575,17 @@ gastropoda<-function(image.folder){
               choice10<-magick::image_read(image_path)
               op <- par(mfrow=c(2,2))
               plot(choice10)
-              title(main=expression( bold("ENTER 10")), line = -4)
+              title(main=expression( bold("ENTER 10")))
 
               image_path <- paste0(image.folder, "choice_16b.jpg")
               choice16b<-magick::image_read(image_path)
               plot(choice16b)
-              title(main=expression(bold("ENTER 16b")), line = -4)
+              title(main=expression(bold("ENTER 16b")))
 
               image_path <- paste0(image.folder, "choice_22.jpg")
               choice22<-magick::image_read(image_path)
               plot(choice22)
-              title(main=expression(bold("ENTER 22")), line = -4)
+              title(main=expression(bold("ENTER 22")))
 
             } else {
               if ("choice_10.jpg" %in% image_fdir == TRUE && "choice_16b.jpg" %in% image_fdir == TRUE) {
